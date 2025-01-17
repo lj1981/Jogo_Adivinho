@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: minha-aplicacao-java
-    env: java
-    buildCommand: 'mvn clean install'  # Comando de build para Java
-    startCommand: 'java -jar target/minha-aplicacao.jar'  # Comando para rodar a aplicação
+    name: minha-aplicacao
+    env: node
+    buildCommand: 'npm install'  # Caso tenha dependências para instalar
+    startCommand: 'http-server ./ --port 8080'  # Serve o diretório atual com index.html
     plan: free
 
 
