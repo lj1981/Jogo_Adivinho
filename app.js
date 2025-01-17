@@ -1,21 +1,73 @@
-def verificar_sequencia(chute):
-    # Verificar se a sequência de números fornecidos é crescente
-    for i in range(len(chute)-1):
-        if chute[i] + 1 == chute[i + 1]:
-            return True
-    return False
+// Gera um número secreto inicial
+let numeroSecreto = Math.floor(Math.random() * 20) + 1;
 
-def processar_chute(chute):
-    if verificar_sequencia(chute):
-        print("Assim é fácil, melhor embaralhar!")
-        # Impedir o jogador de usar números da sequência
-        return False  # Barrar o chute
-    else:
-        return True  # Permitir o chute
+// Contador de tentativas
+let tentativas = 0;
 
-# Teste
-chute = [1, 2, 3]
-if processar_chute(chute):
-    print("Chute permitido!")
-else:
-    print("Chute barrado.")
+// Elementos da interface
+const nameInput = document.getElementById('name');
+const guessInput = document.getElementById('guess');
+const submitButton = document.getElementById('submit');
+const messageDiv = document.getElementById('message');
+
+// Foco no próximo campo ao pressionar Enter
+nameInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    guessInput.focus(); // Move o foco para o campo de palpite
+  }
+});
+
+guessInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    submitButton.click(); // Simula o clique no botão de enviar
+  }
+});
+
+// Evento de clique no botão
+submitButton.addEventListener('click', () => {
+  const nome = nameInput.value.trim();
+  const palpite = parseInt(guessInput.value);
+
+  // Validação do nome e palpite
+  if (!nome) {
+    messageDiv.textContent = 'Por favor, digite seu nome.';
+    return;
+  }
+  if (isNaN(palpite) || palpite < 1 || palpite > 20) {
+    messageDiv.textContent = 'Por favor, insira um número válido.';
+    return;
+  }
+
+  // Incrementa o contador de tentativas
+  tentativas++;
+
+  // Verificação do palpite
+  if (palpite === numeroSecreto) {
+    messageDiv.textContent = `Parabéns, ${nome}! Você acertou o número secreto!`;
+    messageDiv.style.color = 'green';
+    numeroSecreto = Math.floor(Math.random() * 20) + 1; // Troca o número secreto após o acerto
+    tentativas = 0; // Reinicia o contador de tentativas
+  } else {
+    let mensagem = `Huu, tente outra vez, ${nome}.`;
+
+    // Verifica se o palpite está próximo do número secreto
+    if (Math.abs(palpite - numeroSecreto) <= 2) {
+      mensagem += ' Está quase lá!';
+      messageDiv.style.color = 'orange'; // Altere a cor para indicar proximidade
+    } else {
+      messageDiv.style.color = 'red';
+    }
+
+    messageDiv.textContent = mensagem;
+  }
+
+  // Verifica se o número secreto deve ser alterado
+  // Verifica se o número secreto deve ser alterado após 20 tentativas
+  if (tentativas >= 20) {
+    numeroSecreto = Math.floor(Math.random() * 20) + 1;
+    tentativas = 0; // Reinicia o contador de tentativas
+  }
+
+  // Limpar o input do palpite
+  guessInput.value = '';
+});
