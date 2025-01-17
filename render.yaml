@@ -2,6 +2,7 @@ services:
   - type: web
     name: minha-aplicacao-java
     env: java
-    buildCommand: 'mvn clean install'  # Comando para build com Maven
-    startCommand: 'java -jar target/minha-aplicacao.jar'  # Comando para rodar a aplicação Java
-    plan: starter  # Altere para 'starter' (plano disponível)
+    buildCommand: 'mvn clean install'  # Comando de build para Java usando Maven
+    startCommand: 'java -jar target/minha-aplicacao.jar'  # Comando para rodar a aplicação
+    plan: starter  # Usar o plano starter para Java
+
