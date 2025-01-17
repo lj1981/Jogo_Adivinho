@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Adivinhação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      margin: 0;
+    }
+    h1 {
+      color: #007BFF;
+    }
+    .game-container {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 300px;
+    }
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: calc(100% - 5px);
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    /* Remove as setas do input tipo number */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield; /* Para navegadores baseados em Firefox */
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo de Adivinhação</h1>
+  <h2>Adivinhe o numero secreto entre 1 a 20</h2>
+  <div class="game-container">
+    <label for="name">Seu Nome:</label>
+    <input type="text" id="name" placeholder="Digite seu nome aqui" autofocus>
+    <label for="guess">Seu Palpite:</label>
+    <input type="number" id="guess" placeholder="Chute um número">
+    <button id="submit">Enviar Palpite</button>
+    <div class="message" id="message"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
