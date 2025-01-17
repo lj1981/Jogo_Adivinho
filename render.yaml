@@ -5,5 +5,5 @@ services:
     buildCommand: 'mvn clean install'  # Comando de build para Java
     startCommand: 'java -jar target/minha-aplicacao.jar'  # Comando para rodar a aplicação
     plan: free
-    disk: 500mb  # Dependendo do tamanho da aplicação, pode ser necessário ajustar
+    disk: 
 
