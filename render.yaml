@@ -2,7 +2,7 @@ services:
   - type: web
     name: minha-aplicacao
     env: node    
-    startCommand: 'npx http-server ./ --port 4000'  # Usa o http-server localmente via npx
+    startCommand: 'npx http-server ./ --port 10000'  # Usa o http-server localmente via npx
     plan: free
 
 
