@@ -1,10 +1,9 @@
 services:
   - type: web
-    name: minha-aplicacao
-    env: node
-    buildCommand: 'npm install'
-    startCommand: 'npm start'
+    name: minha-aplicacao-estatica
+    env: static
+    buildCommand: 'echo "No build step needed"'
+    startCommand: 'npx serve .'
     plan: free
-    branches:
-      - main
+
 
