@@ -1,9 +1,9 @@
 services:
   - type: web
     name: minha-aplicacao-java
-    env: java8
+    env: java
     buildCommand: 'mvn clean install'  # Comando de build para Java
     startCommand: 'java -jar target/minha-aplicacao.jar'  # Comando para rodar a aplicação
     plan: free
-    disk: 
+
 
