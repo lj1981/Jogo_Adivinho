@@ -45,6 +45,8 @@ submitButton.addEventListener('click', () => {
   if (palpite === numeroSecreto) {
     messageDiv.textContent = `Parabéns, ${nome}! Você acertou o número secreto!`;
     messageDiv.style.color = 'green';
+    numeroSecreto = Math.floor(Math.random() * 20) + 1; // Troca o número secreto após o acerto
+    tentativas = 0; // Reinicia o contador de tentativas
   } else {
     let mensagem = `Huu, tente outra vez, ${nome}.`;
 
@@ -59,7 +61,7 @@ submitButton.addEventListener('click', () => {
     messageDiv.textContent = mensagem;
   }
 
-  // Verifica se o número secreto deve ser alterado
+  // Verifica se o número secreto deve ser alterado após 20 tentativas
   if (tentativas >= 20) {
     numeroSecreto = Math.floor(Math.random() * 20) + 1;
     tentativas = 0; // Reinicia o contador de tentativas
