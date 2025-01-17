@@ -23,6 +23,17 @@ guessInput.addEventListener('keydown', (event) => {
   }
 });
 
+// Função para verificar se o palpite é uma sequência simples
+function isSequential(number) {
+  const numStr = number.toString();
+  for (let i = 0; i < numStr.length - 1; i++) {
+    if (parseInt(numStr[i]) + 1 !== parseInt(numStr[i + 1])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 // Evento de clique no botão
 submitButton.addEventListener('click', () => {
   const nome = nameInput.value.trim();
@@ -35,6 +46,13 @@ submitButton.addEventListener('click', () => {
   }
   if (isNaN(palpite) || palpite < 1 || palpite > 20) {
     messageDiv.textContent = 'Por favor, insira um número válido.';
+    return;
+  }
+
+  // Verifica se o palpite é uma sequência simples (como 123, 234, etc.)
+  if (isSequential(palpite)) {
+    messageDiv.textContent = 'Assim é fácil, melhor embaralhar!';
+    messageDiv.style.color = 'purple';
     return;
   }
 
@@ -61,7 +79,6 @@ submitButton.addEventListener('click', () => {
     messageDiv.textContent = mensagem;
   }
 
-  // Verifica se o número secreto deve ser alterado
   // Verifica se o número secreto deve ser alterado após 20 tentativas
   if (tentativas >= 20) {
     numeroSecreto = Math.floor(Math.random() * 20) + 1;
