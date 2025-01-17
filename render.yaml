@@ -1,7 +1,7 @@
 services:
   - type: web
     name: minha-aplicacao
-    env: node
+    env: java
     buildCommand: 'npm install'  # Caso tenha dependências para instalar
     startCommand: 'http-server ./ --port 8080'  # Serve o diretório atual com index.html
     plan: free
