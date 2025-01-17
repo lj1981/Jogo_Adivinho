@@ -2,7 +2,7 @@ services:
   - type: web
     name: minha-aplicacao
     env: node    
-    startCommand: 'http-server ./ --port 8080'  # Serve o diretório atual com index.html
+    startCommand: 'http-server ./ --port 5000'  # Serve o diretório atual com index.html
     plan: free
 
 
