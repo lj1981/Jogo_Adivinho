@@ -13,17 +13,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh; /* Ajusta para toda a altura da tela */
+      height: 80vh;
       margin: 0;
-      padding: 0;
     }
     h1 {
       color: #007BFF;
-      font-size: 2rem; /* Tamanho de fonte adaptável */
-    }
-    h2 {
-      color: #007BFF;
-      font-size: 1.5rem;
     }
     .game-container {
       background: #ffffff;
@@ -32,14 +26,14 @@
       padding: 20px;
       text-align: center;
       width: 90%;
-      max-width: 400px; /* Largura máxima para telas maiores */
+      max-width: 300px;
     }
     input {
       margin: 10px 0;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      width: 100%; /* Garante que o campo ocupe toda a largura disponível */
+      width: calc(100% - 5px);
     }
     button {
       padding: 10px 15px;
@@ -49,7 +43,6 @@
       color: #ffffff;
       font-size: 16px;
       cursor: pointer;
-      width: 100%; /* Botão ocupa toda a largura */
     }
     button:hover {
       background-color: #0056b3;
@@ -58,39 +51,20 @@
       margin-top: 20px;
       font-size: 18px;
     }
-
     /* Remove as setas do input tipo number */
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
-
     input[type="number"] {
-      -moz-appearance: textfield;
-    }
-
-    /* Media Queries para telas menores */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      h2 {
-        font-size: 1.3rem;
-      }
-    }
-
-    /* Media Queries para telas grandes */
-    @media (min-width: 1200px) {
-      .game-container {
-        width: 50%;
-      }
+      -moz-appearance: textfield; /* Para navegadores baseados em Firefox */
     }
   </style>
 </head>
 <body>
   <h1>Jogo de Adivinhação</h1>
-  <h2>Adivinhe o número secreto entre 1 e 20</h2>
+  <h2>Adivinhe o numero secreto entre 1 a 20</h2>
   <div class="game-container">
     <label for="name">Seu Nome:</label>
     <input type="text" id="name" placeholder="Digite seu nome aqui" autofocus>
