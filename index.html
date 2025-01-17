@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Jogo de Adivinhação</title>
   <style>
     body {
@@ -13,11 +14,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 80vh;
+      height: 100vh;
       margin: 0;
+      padding: 0 15px;
+      box-sizing: border-box;
     }
     h1 {
       color: #007BFF;
+      text-align: center;
     }
     .game-container {
       background: #ffffff;
@@ -25,15 +29,15 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       text-align: center;
-      width: 90%;
-      max-width: 300px;
+      width: 100%;
+      max-width: 320px;
     }
     input {
       margin: 10px 0;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      width: calc(100% - 5px);
+      width: calc(100% - 22px);
     }
     button {
       padding: 10px 15px;
@@ -43,6 +47,7 @@
       color: #ffffff;
       font-size: 16px;
       cursor: pointer;
+      width: 100%;
     }
     button:hover {
       background-color: #0056b3;
@@ -50,25 +55,24 @@
     .message {
       margin-top: 20px;
       font-size: 18px;
+      word-wrap: break-word;
     }
-    /* Remove as setas do input tipo number */
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
-
     input[type="number"] {
-      -moz-appearance: textfield; /* Para navegadores baseados em Firefox */
+      -moz-appearance: textfield;
     }
   </style>
 </head>
 <body>
   <h1>Jogo de Adivinhação</h1>
-  <h2>Adivinhe o numero secreto entre 1 a 20</h2>
+  <h2>Adivinhe o número secreto entre 1 e 20</h2>
   <div class="game-container">
     <label for="name">Seu Nome:</label>
-    <input type="text" id="name" placeholder="Digite seu nome aqui" autofocus>
+    <input type="text" id="name" placeholder="Digite seu nome aqui" autofocus value="">
     <label for="guess">Seu Palpite:</label>
     <input type="number" id="guess" placeholder="Chute um número">
     <button id="submit">Enviar Palpite</button>
